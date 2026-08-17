@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { CategoryService } from "./category.service";
+import { CategoryService } from "./category.service.js";
 
 export const CategoryController = {
   create: async (req: Request, res: Response, next: NextFunction) => {
@@ -20,7 +20,7 @@ export const CategoryController = {
   },
   getBySlug: async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const data = await CategoryService.getBySlug(req.params.slug);
+      const data = await CategoryService.getBySlug(req.params.slug as string);
       res.status(200).json({ success: true, data });
     } catch (error: any) {
       next(error);
@@ -28,7 +28,7 @@ export const CategoryController = {
   },
   update: async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const data = await CategoryService.update(req.params.id, req.body);
+      const data = await CategoryService.update(req.params.id as string, req.body);
       res.status(200).json({ success: true, data });
     } catch (error: any) {
       next(error);
@@ -36,7 +36,7 @@ export const CategoryController = {
   },
   delete: async (req: Request, res: Response, next: NextFunction) => {
     try {
-      await CategoryService.delete(req.params.id);
+      await CategoryService.delete(req.params.id as string);
       res.status(200).json({ success: true, message: "Deleted successfully" });
     } catch (error: any) {
       next(error);

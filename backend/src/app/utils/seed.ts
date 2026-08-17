@@ -1,5 +1,5 @@
-import { prisma } from "../lib/prisma";
-import config from "../config";
+import { prisma } from "../lib/prisma.js";
+import config from "../config/index.js";
 import bcrypt from "bcrypt";
 
 export const seedSuperAdmin = async () => {

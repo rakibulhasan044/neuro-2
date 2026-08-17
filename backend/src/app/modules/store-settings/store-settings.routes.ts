@@ -1,6 +1,6 @@
 import express from "express";
-import { StoreSettingsController } from "./store-settings.controller";
-import auth from "../../middlewares/auth";
+import { StoreSettingsController } from "./store-settings.controller.js";
+import auth from "../../middlewares/auth.js";
 
 const router = express.Router();
 

@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { BrandService } from "./brand.service";
+import { BrandService } from "./brand.service.js";
 
 export const BrandController = {
   create: async (req: Request, res: Response, next: NextFunction) => {
@@ -20,7 +20,7 @@ export const BrandController = {
   },
   getBySlug: async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const data = await BrandService.getBySlug(req.params.slug);
+      const data = await BrandService.getBySlug(req.params.slug as string);
       res.status(200).json({ success: true, data });
     } catch (error: any) {
       next(error);
@@ -28,7 +28,7 @@ export const BrandController = {
   },
   update: async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const data = await BrandService.update(req.params.id, req.body);
+      const data = await BrandService.update(req.params.id as string, req.body);
       res.status(200).json({ success: true, data });
     } catch (error: any) {
       next(error);
@@ -36,7 +36,7 @@ export const BrandController = {
   },
   delete: async (req: Request, res: Response, next: NextFunction) => {
     try {
-      await BrandService.delete(req.params.id);
+      await BrandService.delete(req.params.id as string);
       res.status(200).json({ success: true, message: "Deleted successfully" });
     } catch (error: any) {
       next(error);

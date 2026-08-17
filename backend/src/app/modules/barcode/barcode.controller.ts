@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { BarcodeService } from "./barcode.service";
+import { BarcodeService } from "./barcode.service.js";
 
 export const BarcodeController = {
   generate: async (req: Request, res: Response, next: NextFunction) => {

@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
-import { UserService } from "./user.service";
-import { UserValidation } from "./user.validation";
+import { UserService } from "./user.service.js";
+import { UserValidation } from "./user.validation.js";
 
 export const UserController = {
   getProfile: async (req: Request, res: Response, next: NextFunction) => {
@@ -50,7 +50,7 @@ export const UserController = {
       const userId = (req as any).user.userId;
       const { id } = req.params;
       const validatedData = UserValidation.updateAddressSchema.parse(req.body);
-      const address = await UserService.updateAddress(userId, id, validatedData);
+      const address = await UserService.updateAddress(userId, id  as string, validatedData);
       res.status(200).json({ success: true, data: address });
     } catch (error: any) {
       next(error);
@@ -61,7 +61,7 @@ export const UserController = {
     try {
       const userId = (req as any).user.userId;
       const { id } = req.params;
-      await UserService.deleteAddress(userId, id);
+      await UserService.deleteAddress(userId, id as string);
       res.status(200).json({ success: true, message: "Address deleted successfully" });
     } catch (error: any) {
       next(error);
@@ -84,7 +84,7 @@ export const UserController = {
     try {
       const adminRole = (req as any).user.role;
       const { id } = req.params;
-      await UserService.deleteUser(id, adminRole);
+      await UserService.deleteUser(id as string, adminRole);
       res.status(200).json({ success: true, message: "User deleted successfully" });
     } catch (error: any) {
       next(error);
@@ -96,7 +96,7 @@ export const UserController = {
       const adminRole = (req as any).user.role;
       const { id } = req.params;
       const { role } = req.body;
-      const user = await UserService.updateUserRole(id, role, adminRole);
+      const user = await UserService.updateUserRole(id as string, role, adminRole);
       res.status(200).json({ success: true, message: "Role updated successfully", data: user });
     } catch (error: any) {
       next(error);
@@ -105,7 +105,7 @@ export const UserController = {
 
   createAdmin: async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const result = await UserService.createAdmin(req.body);
+      const result = await (UserService as any).createAdmin(req.body);
       res.status(201).json({
         success: true,
         message: "Admin created successfully",

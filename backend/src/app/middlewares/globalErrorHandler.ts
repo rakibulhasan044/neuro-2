@@ -1,12 +1,12 @@
 import { Request, Response, NextFunction } from "express";
-import AppError from "../errors/AppError";
+import AppError from "../errors/AppError.js";
 import { Prisma } from "@prisma/client";
 import { ZodError } from "zod";
 import jwt from "jsonwebtoken";
-import { handleJwtError } from "../errors/handleJwtError";
-import logger from "../lib/logger";
-import handlePrismaError from "../errors/handlePrismaError";
-import handleZodError from "../errors/handleZodError";
+import { handleJwtError } from "../errors/handleJwtError.js";
+import logger from "../lib/logger.js";
+import handlePrismaError from "../errors/handlePrismaError.js";
+import handleZodError from "../errors/handleZodError.js";
 
 const globalErrorHandler = (
   error: any,

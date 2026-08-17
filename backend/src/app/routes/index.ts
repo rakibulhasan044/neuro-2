@@ -1,18 +1,18 @@
 import express from "express";
-import { UserRoutes } from "../modules/user/user.routes";
-import { AuthRoutes } from "../modules/auth/auth.routes";
-import { ProductRoutes } from "../modules/product/product.routes";
-import { OrderRoutes } from "../modules/order/order.routes";
-import { StoreSettingsRoutes } from "../modules/store-settings/store-settings.routes";
-import { UploadRoutes } from "../modules/upload/upload.routes";
-import { CategoryRoutes } from "../modules/category/category.routes";
-import { BrandRoutes } from "../modules/brand/brand.routes";
-import { CollectionRoutes } from "../modules/collection/collection.routes";
-import { BarcodeRoutes } from "../modules/barcode/barcode.routes";
-import { DashboardRoutes } from "../modules/dashboard/dashboard.routes";
-import { InventoryRoutes } from "../modules/inventory/inventory.routes";
-import { ReviewRoutes } from "../modules/review/review.routes";
-import { WishlistRoutes } from "../modules/wishlist/wishlist.routes";
+import { UserRoutes } from "../modules/user/user.routes.js";
+import { AuthRoutes } from "../modules/auth/auth.routes.js";
+import { ProductRoutes } from "../modules/product/product.routes.js";
+import { OrderRoutes } from "../modules/order/order.routes.js";
+import { StoreSettingsRoutes } from "../modules/store-settings/store-settings.routes.js";
+import { UploadRoutes } from "../modules/upload/upload.routes.js";
+import { CategoryRoutes } from "../modules/category/category.routes.js";
+import { BrandRoutes } from "../modules/brand/brand.routes.js";
+import { CollectionRoutes } from "../modules/collection/collection.routes.js";
+import { BarcodeRoutes } from "../modules/barcode/barcode.routes.js";
+import { DashboardRoutes } from "../modules/dashboard/dashboard.routes.js";
+import { InventoryRoutes } from "../modules/inventory/inventory.routes.js";
+import { ReviewRoutes } from "../modules/review/review.routes.js";
+import { WishlistRoutes } from "../modules/wishlist/wishlist.routes.js";
 
 const router = express.Router();
 

@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { ProductService } from "./product.service";
+import { ProductService } from "./product.service.js";
 
 export const ProductController = {
   createProduct: async (req: Request, res: Response, next: NextFunction) => {
@@ -31,7 +31,7 @@ export const ProductController = {
 
   getProductBySlug: async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const result = await ProductService.getProductBySlug(req.params.slug);
+      const result = await ProductService.getProductBySlug(req.params.slug as string);
       res.status(200).json({
         success: true,
         message: "Product fetched successfully",
@@ -44,7 +44,7 @@ export const ProductController = {
 
   updateProduct: async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const result = await ProductService.updateProduct(req.params.id, req.body);
+      const result = await ProductService.updateProduct(req.params.id as string, req.body);
       res.status(200).json({
         success: true,
         message: "Product updated successfully",
@@ -57,7 +57,7 @@ export const ProductController = {
 
   deleteProduct: async (req: Request, res: Response, next: NextFunction) => {
     try {
-      await ProductService.deleteProduct(req.params.id);
+      await ProductService.deleteProduct(req.params.id as string);
       res.status(200).json({
         success: true,
         message: "Product deleted successfully",

@@ -7,11 +7,11 @@ export const UserValidation = {
   }),
 
   addAddressSchema: z.object({
-    street: z.string({ required_error: "Street is required" }),
-    city: z.string({ required_error: "City is required" }),
-    state: z.string({ required_error: "State is required" }),
-    postalCode: z.string({ required_error: "Postal Code is required" }),
-    country: z.string({ required_error: "Country is required" }),
+    street: z.string({ message: "Street is required" }),
+    city: z.string({ message: "City is required" }),
+    state: z.string({ message: "State is required" }),
+    postalCode: z.string({ message: "Postal Code is required" }),
+    country: z.string({ message: "Country is required" }),
     isDefault: z.boolean().optional().default(false),
   }),
 

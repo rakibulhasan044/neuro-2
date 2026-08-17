@@ -1,6 +1,6 @@
 import express from "express";
-import { BrandController } from "./brand.controller";
-import auth from "../../middlewares/auth";
+import { BrandController } from "./brand.controller.js";
+import auth from "../../middlewares/auth.js";
 
 const router = express.Router();
 

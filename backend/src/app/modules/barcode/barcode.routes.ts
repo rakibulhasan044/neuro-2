@@ -1,6 +1,6 @@
 import express from "express";
-import { BarcodeController } from "./barcode.controller";
-import auth from "../../middlewares/auth";
+import { BarcodeController } from "./barcode.controller.js";
+import auth from "../../middlewares/auth.js";
 
 const router = express.Router();
 

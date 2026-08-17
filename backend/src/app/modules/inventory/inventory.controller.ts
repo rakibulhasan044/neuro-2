@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { InventoryService } from "./inventory.service";
+import { InventoryService } from "./inventory.service.js";
 
 export const InventoryController = {
   getInventory: async (req: Request, res: Response, next: NextFunction) => {
@@ -20,7 +20,7 @@ export const InventoryController = {
     try {
       const { id } = req.params;
       const { stock } = req.body;
-      const result = await InventoryService.adjustStock(id, Number(stock));
+      const result = await InventoryService.adjustStock(id as string, Number(stock));
       res.status(200).json({ success: true, data: result });
     } catch (err: any) {
       next(err);

@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { StoreSettingsService } from "./store-settings.service";
+import { StoreSettingsService } from "./store-settings.service.js";
 
 export const StoreSettingsController = {
   getStoreSettings: async (req: Request, res: Response, next: NextFunction) => {

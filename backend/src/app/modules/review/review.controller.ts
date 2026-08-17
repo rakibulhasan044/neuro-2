@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { ReviewService } from "./review.service";
+import { ReviewService } from "./review.service.js";
 
 export const ReviewController = {
   createReview: async (req: Request, res: Response, next: NextFunction) => {
@@ -37,7 +37,7 @@ export const ReviewController = {
   getProductReviews: async (req: Request, res: Response, next: NextFunction) => {
     try {
       const { productId } = req.params;
-      const result = await ReviewService.getProductReviews(productId, req.query);
+      const result = await ReviewService.getProductReviews(productId as string, req.query);
       res.status(200).json({ success: true, ...result });
     } catch (err: any) {
       next(err);

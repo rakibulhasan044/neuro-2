@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { Secret } from "jsonwebtoken";
-import config from "../config";
-import { verifyToken } from "../utils/jwtHelper";
+import config from "../config/index.js";
+import { verifyToken } from "../utils/jwtHelper.js";
 
 const optionalAuth = () => {
   return async (req: Request, res: Response, next: NextFunction) => {

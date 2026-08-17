@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 import path from "path";
-import { requireExpiry, requireInt, requireString } from "../utils/configHelper";
+import { requireExpiry, requireInt, requireString } from "../utils/configHelper.js";
 
 dotenv.config({ path: path.join(process.cwd(), ".env") });
 

@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { OrderService } from "./order.service";
+import { OrderService } from "./order.service.js";
 
 export const OrderController = {
   createOrder: async (req: Request, res: Response, next: NextFunction) => {
@@ -72,7 +72,7 @@ export const OrderController = {
 
   getOrderById: async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const result = await OrderService.getOrderById(req.params.id);
+      const result = await OrderService.getOrderById(req.params.id as string);
       res.status(200).json({ success: true, data: result });
     } catch (err: any) {
       next(err);
@@ -82,7 +82,7 @@ export const OrderController = {
   updateOrderStatus: async (req: Request, res: Response, next: NextFunction) => {
     try {
       const { status } = req.body;
-      const result = await OrderService.updateOrderStatus(req.params.id, status);
+      const result = await OrderService.updateOrderStatus(req.params.id as string, status);
       res.status(200).json({ success: true, data: result });
     } catch (err: any) {
       next(err);
@@ -96,7 +96,7 @@ export const OrderController = {
         res.status(401).json({ success: false, message: "Unauthorized" });
         return;
       }
-      const result = await OrderService.cancelOrder(userId, req.params.id);
+      const result = await OrderService.cancelOrder(userId, req.params.id as string);
       res.status(200).json({ success: true, message: "Order cancelled successfully", data: result });
     } catch (err: any) {
       next(err);

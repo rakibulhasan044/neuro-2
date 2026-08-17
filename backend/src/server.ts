@@ -1,8 +1,9 @@
 import { Server } from "http";
-import app from "./app";
-import config from "./app/config";
+import app from "./app.js";
+// import config from "./app/config.";
 
-import { seedSuperAdmin } from "./app/utils/seed";
+import { seedSuperAdmin } from "./app/utils/seed.js";
+import config from "./app/config/index.js";
 
 async function main() {
   try {

@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { DashboardService } from "./dashboard.service";
+import { DashboardService } from "./dashboard.service.js";
 
 export const DashboardController = {
   getMetrics: async (req: Request, res: Response, next: NextFunction) => {

@@ -1,5 +1,5 @@
-import { prisma } from "../../lib/prisma";
-import { paginationHelper } from "../../shared/paginationHelper";
+import { prisma } from "../../lib/prisma.js";
+import { paginationHelper } from "../../shared/paginationHelper.js";
 
 export const InventoryService = {
   getInventory: async (filters: any) => {

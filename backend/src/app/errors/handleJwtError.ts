@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
-import { TGenericErrorResponse } from "../interfaces/error.interface";
-import config from "../config";
+import { TGenericErrorResponse } from "../interfaces/error.interface.js";
+import config from "../config/index.js";
 
 const { JsonWebTokenError, TokenExpiredError, NotBeforeError } = jwt;
 

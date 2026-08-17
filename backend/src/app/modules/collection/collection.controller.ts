@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { CollectionService } from "./collection.service";
+import { CollectionService } from "./collection.service.js";
 
 export const CollectionController = {
   create: async (req: Request, res: Response, next: NextFunction) => {
@@ -20,7 +20,7 @@ export const CollectionController = {
   },
   getBySlug: async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const data = await CollectionService.getBySlug(req.params.slug);
+      const data = await CollectionService.getBySlug(req.params.slug as string);
       res.status(200).json({ success: true, data });
     } catch (error: any) {
       next(error);
@@ -28,7 +28,10 @@ export const CollectionController = {
   },
   update: async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const data = await CollectionService.update(req.params.id, req.body);
+      const data = await CollectionService.update(
+        req.params.id as string,
+        req.body,
+      );
       res.status(200).json({ success: true, data });
     } catch (error: any) {
       next(error);
@@ -36,10 +39,10 @@ export const CollectionController = {
   },
   delete: async (req: Request, res: Response, next: NextFunction) => {
     try {
-      await CollectionService.delete(req.params.id);
+      await CollectionService.delete(req.params.id as string);
       res.status(200).json({ success: true, message: "Deleted successfully" });
     } catch (error: any) {
       next(error);
     }
-  }
+  },
 };

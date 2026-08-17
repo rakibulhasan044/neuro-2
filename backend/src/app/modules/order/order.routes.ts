@@ -1,7 +1,7 @@
 import express from "express";
-import { OrderController } from "./order.controller";
-import auth from "../../middlewares/auth";
-import optionalAuth from "../../middlewares/optionalAuth";
+import { OrderController } from "./order.controller.js";
+import auth from "../../middlewares/auth.js";
+import optionalAuth from "../../middlewares/optionalAuth.js";
 
 const router = express.Router();
 

@@ -1,5 +1,5 @@
-import { prisma } from "../../lib/prisma";
-import { paginationHelper } from "../../shared/paginationHelper";
+import { prisma } from "../../lib/prisma.js";
+import { paginationHelper } from "../../shared/paginationHelper.js";
 import bcrypt from "bcrypt";
 
 export const UserService = {

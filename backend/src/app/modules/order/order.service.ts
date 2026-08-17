@@ -1,5 +1,5 @@
-import { prisma } from "../../lib/prisma";
-import { paginationHelper } from "../../shared/paginationHelper";
+import { prisma } from "../../lib/prisma.js";
+import { paginationHelper } from "../../shared/paginationHelper.js";
 import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {

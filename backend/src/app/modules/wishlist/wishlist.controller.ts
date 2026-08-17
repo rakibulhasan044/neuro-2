@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { WishlistService } from "./wishlist.service";
+import { WishlistService } from "./wishlist.service.js";
 
 export const WishlistController = {
   getWishlist: async (req: Request, res: Response, next: NextFunction) => {
