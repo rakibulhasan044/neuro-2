@@ -6,11 +6,14 @@
     "strict": true,
     "esModuleInterop": true,
     "outDir": "dist",
-    "rootDir": "src",
+    "rootDir": ".",
     "baseUrl": ".",
+    "ignoreDeprecations": "6.0",
     "paths": {
       "@/*": ["src/*"],
       "@generated/*": ["generated/*"]
     }
-  }
+  },
+  "include": ["src/**/*.ts", "generated/**/*.ts", "prisma.config.ts"],
+  "exclude": ["dist", "node_modules"]
 }
