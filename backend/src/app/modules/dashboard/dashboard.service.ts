@@ -67,7 +67,7 @@ export const DashboardService = {
       include: {
         variant: {
           include: {
-            product: { select: { category: true, brand: true } }
+            product: { select: { name: true, category: true, brand: true } }
           }
         }
       }
